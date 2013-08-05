@@ -22,6 +22,9 @@ function render_pagina() {
         $tmp_3 = htmlentities( stripslashes( $_POST['codigo_analytics'] ) , ENT_COMPAT );
         update_option( 'codigo_analytics', $tmp_3 );
 
+        $tmp_4 = htmlentities( stripslashes( $_POST['email_contacto'] ) , ENT_COMPAT );
+        update_option( 'email_contacto', $tmp_4 );
+
         echo 'Actualizado!';
         echo '</strong></p></div>';
     }
@@ -63,6 +66,16 @@ function render_pagina() {
             </td>
             <td align="left">
                 <input style="border:1px solid #3366FF;border-left: 4px solid #3366FF;" name="codigo_analytics" value="<?php echo get_option( 'codigo_analytics' ); ?>">
+            </td>
+        </tr>
+
+        <tr valign="top">
+            <td width="35%" align="left">
+                <strong>Email para contacto</strong>
+                <br>Ej: example@domain.com
+            </td>
+            <td align="left">
+                <input style="border:1px solid #3366FF;border-left: 4px solid #3366FF;" name="email_contacto" value="<?php echo get_option( 'email_contacto' ); ?>">
             </td>
         </tr>
 
@@ -110,6 +123,16 @@ function mostrar_analytics() {
 
     if ( !empty( $decoded_3 ) ) {
         $output .= " $decoded_3";
+    }
+    return $output;
+}
+
+function mostrar_email() {
+    $encoded_4 = get_option( 'email_contacto' );
+    $decoded_4 = html_entity_decode( $encoded_4, ENT_COMPAT );
+
+    if ( !empty( $decoded_4 ) ) {
+        $output .= " $decoded_4";
     }
     return $output;
 }
