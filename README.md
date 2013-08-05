@@ -32,7 +32,7 @@ Crear un theme sencillo para mis blogs mas pequeños y con menos visitas. El the
 
 # To-Do
 - Agregar archivos de licencias
-- Agregar template para formulario de contacto
+- ~~Agregar template para formulario de contacto~~
 - Agregar template para indice de categorias
 - Agregar template para busquedas
 - Agregar template para blogroll
