@@ -1,5 +1,8 @@
 [![logo](http://blogjapon.com.ar/wp-content/themes/small_dog/screenshot.png)](http://federicosantillan.com.ar)
 
+#Demo
+Puedes ver una demo [aqui](http://blogjapon.com.ar)
+
 # La idea
 
 Crear un theme sencillo para mis blogs mas pequeños y con menos visitas. El theme siempre cumplira con estas ideas base:
