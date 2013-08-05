@@ -164,10 +164,14 @@ a img.aligncenter {
 	}
 }
 
-/* --------------------------- Posicion -------------------*/
+/* --------------------------- Posicion y tamaño -------------------*/
 .centrado{
 	text-align: center;
 }
+
+.05x{ font-size: 0.5em; }
+.2x{ font-size: 2em; }
+.3x{ font-size: 3em; }
 
 /* --------------------------- Posts -------------------*/
 body.single{
