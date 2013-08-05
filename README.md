@@ -1,8 +1,5 @@
 [![logo](http://blogjapon.com.ar/wp-content/themes/small_dog/screenshot.png)](http://federicosantillan.com.ar)
 
-Small Dog Wordpress Theme
-=========================
-
 # La idea
 
 Crear un theme sencillo para mis blogs mas pequeños y con menos visitas. El theme siempre cumplira con estas ideas base:
@@ -16,12 +13,12 @@ Crear un theme sencillo para mis blogs mas pequeños y con menos visitas. El the
 
 # Tecnologias y herramientas usadas
 
--SASS y Compass (Para crear los estilos)
--Zepto (Alternativa ligera y mas que suficiente para Jquery)
--[Html5Blank Theme](http://html5blank.com/) (Theme super basico de wordpress)
--[Fontello](http://fontello.com/) (Para los pocos iconos que se usan)
--[Animenu](https://github.com/catalinred/Animenu) (Para crear el menu responsive sin recurrir a soluciones mas complejas, pesadas y complicadas)
--[Zurb Foundation](https://github.com/zurb/foundation) (La mejor grilla que existe, mas clases de visibilidad, formularios, botones y algunas cosillas mas)
+- SASS y Compass (Para crear los estilos)
+- Zepto (Alternativa ligera y mas que suficiente para Jquery)
+- [Html5Blank Theme](http://html5blank.com/) (Theme super basico de wordpress)
+- [Fontello](http://fontello.com/) (Para los pocos iconos que se usan)
+- [Animenu](https://github.com/catalinred/Animenu) (Para crear el menu responsive sin recurrir a soluciones mas complejas, pesadas y complicadas)
+- [Zurb Foundation](https://github.com/zurb/foundation) (La mejor grilla que existe, mas clases de visibilidad, formularios, botones y algunas cosillas mas)
 
 # Caracteristicas
 - Colores Faciles de modificar con SASS
