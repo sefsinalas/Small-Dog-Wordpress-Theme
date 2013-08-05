@@ -29,6 +29,7 @@ Crear un theme sencillo para mis blogs mas pequeños y con menos visitas. El the
 - Automatic related post (Con o Sin thumbnails)
 - Top Menu
 - Bottom Menu
+- Paginacion integrada
 
 # To-Do
 - Agregar archivos de licencias
