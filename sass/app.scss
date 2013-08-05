@@ -1,0 +1,403 @@
+@import "settings";
+@import "normalize";
+@import "utilidades";
+
+@import "animenu_style";
+@import "font";
+
+@import "foundation/components/global"; // *always required
+@import "foundation/components/grid";
+
+//
+// Use this grid if you want to start using the new Foundation 5 grid early.
+// It will change breakpoints to min-width: 640px and 1024px.
+//
+// @import "foundation/components/grid-5";
+//
+
+@import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+@import "foundation/components/type";
+@import "foundation/components/buttons";
+@import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+@import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+/* --------------------------- Wordpress Core -------------------*/
+.alignnone {
+	margin:5px 20px 20px 0;
+}
+.aligncenter,
+div.aligncenter {
+	display:block;
+	margin:5px auto 5px auto;
+}
+.alignright {
+	float:right;
+	margin:5px 0 20px 20px;
+}
+.alignleft {
+	float:left;
+	margin:5px 20px 20px 0;
+}
+.aligncenter {
+	display:block;
+	margin:5px auto 5px auto;
+}
+a img.alignright {
+	float:right;
+	margin:5px 0 20px 20px;
+}
+a img.alignnone {
+	margin:5px 20px 20px 0;
+}
+a img.alignleft {
+	float:left;
+	margin:5px 20px 20px 0;
+}
+a img.aligncenter {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+.wp-caption {
+	background:#FFF;
+	border:1px solid #F0F0F0;
+	max-width:96%;
+	padding:5px 3px 10px;
+	text-align:center;
+}
+.wp-caption.alignnone {
+	margin:5px 20px 20px 0;
+}
+.wp-caption.alignleft {
+	margin:5px 20px 20px 0;
+}
+.wp-caption.alignright {
+	margin:5px 0 20px 20px;
+}
+.wp-caption img {
+	border:0 none;
+	height:auto;
+	margin:0;
+	max-width:98.5%;
+	padding:0;
+	width:auto;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption {
+	font-size:11px;
+	line-height:17px;
+	margin:0;
+	padding:0 4px 5px;
+}
+
+/* --------------------------- General -------------------*/
+.wrapper{
+	@include grid-row;
+	section{ 
+		@include grid-column(8); 
+		article.post{
+			@include grid-row(nest);
+			h2{
+				@include grid-column(10); 
+				margin-top: 0;
+			}
+			.thumbnail{ //los links que encierran a las imagenes
+				@include grid-column(2); 	
+				img{
+					max-width: 100px;
+					max-height: 100px;
+				}
+			}
+		}
+	}
+	aside{
+		@include grid-column(4);
+		.sidebar-widget{
+			div{
+				h3{
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	header{
+		// @include grid-column(12);
+		@include grid-row(nest-collapse);
+		nav{
+			@include grid-row(nest-collapse);
+			margin-bottom: emCalc(10);
+			>ul{
+				@include grid-column(12);	
+			}
+		}
+	}
+	footer{
+		@include grid-column(12);
+	}
+}
+
+/* --------------------------- Posicion -------------------*/
+.centrado{
+	text-align: center;
+}
+
+/* --------------------------- Posts -------------------*/
+body.single{
+	.wrapper{
+		section{
+			article:nth-child(1){
+				background-color: #fff;
+				h1{
+					margin-bottom: 0;
+				}
+				div.post-data{
+					background-color: #000;
+					padding: emCalc(10) 0;
+				}
+				span.post-data{
+					color: #fff;
+					padding: emCalc(5) 0;
+					&:nth-child(even){
+						@include grid-column(8);
+					}
+					&:nth-child(odd){
+						@include grid-column(4);
+					}
+				}
+				p{
+					a{
+						color: $link-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+body.home, body.archive{
+	.wrapper{
+		section{
+			$list: (1,2,3,4,5,6,7,8,9,10);
+			$colors: (#F7F5E7,#FBCA3C,#722D19,#DB572F,#210D10,#EADAA6,#722D19,#E8E5CE,#48833D,#A3DF94);
+			@each $element in $list{
+				article.post:nth-child(#{$element}){
+					padding: emCalc(10);
+					background-color: nth($colors, $element);
+					@include text-contrast(nth($colors, $element));
+					h2 a{
+						@include text-contrast(nth($colors, $element));
+					}
+					p{
+						a{
+							@include text-contrast(nth($colors, $element));
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+.post ul{ 
+    list-style: outside!important;
+    padding-left: 30px;
+}
+.post ol{ 
+    padding-left: 30px!important;   
+}
+
+.breadcrumbs{ 
+    display: block; 
+    background: #f4f4f4; 
+    padding: 4px 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 2px; 
+    overflow: hidden; 
+    p{
+    	margin-bottom: 0;
+    	color: #666;
+    	font-size: emCalc(13);
+    }
+}    
+
+ul.social_share{
+	padding: 0;
+	margin: 0;
+	line-height: 1em;
+	list-style-type: none;
+	z-index: 999;
+	li{
+		display: inline;
+		font-size: 2em;
+		a{
+			@include transition-property(color);
+			@include transition-duration(1s);
+			@include transition-timing-function(ease-in);
+			&.facebook{
+				color: 	#3350AE;
+			}
+			&.twitter{
+				color: #00C4FC;
+			}
+			&.plusone{
+				color: #D83D2D;
+			}
+			&:hover{
+				color: #000;
+			}
+		}
+	}
+	&.fixed{
+		top:0;
+		padding: emCalc(3) 0;
+		background-color: #fff;
+		position: fixed;
+		border-bottom: 1px solid #c1c1c1;
+	}
+}
+
+.relacionados{
+	@include grid-row(nest-collapse);
+	background-color: #FBCA3C;
+	.line{
+		@include grid-row(nest-collapse);
+		border-top: 1px solid #FFF;
+		padding: emCalc(10) 0;
+		a.imagen{
+			@include grid-column(4);
+			img{
+				max-width: 150px;
+			}
+		}
+		a{
+			@include grid-column(8);
+			font-size: 1.5em;
+			color: #000;
+		}
+	}
+	
+}
+
+/* --------------------------- Sidebar -------------------*/
+.sidebar-widget{
+	>div{
+		// padding: 0 emCalc(10);
+		h3{
+			color: #fff;
+			background-color: #000;
+			padding: emCalc(5);
+			text-align: center;
+		}
+		a{
+			color: $link-color;
+			&:hover{
+				// color: $primary-color;
+			}
+		}
+			ul{
+			list-style-type: none;
+			li{
+				a{
+					@include transition-property(color);
+  					@include transition-duration(.4s);
+  					@include transition-timing-function(linear);
+					border-bottom: 1px solid #c1c1c1;
+					width:100%;
+					display: block;
+					&:hover{
+						color: #e06c1f;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* --------------------------- Search -------------------*/
+form.search{
+	button{
+		text-align: center;
+		padding:0;
+	}
+}
+
+/* --------------------------- Pagination -------------------*/
+.pagination{
+	text-align:center;
+	padding: emCalc(6) 0;
+	background-color: #000;
+	border-top: 1px solid #555;
+	.page-numbers{
+		padding: emCalc(1) emCalc(5);
+		&:hover{
+			background-color: $secondary-color;
+			color: #000;
+		}
+	}
+	.current{
+		background-color: $primary-color;
+	}
+	.dots{
+		color: $secondary-color;
+		&:hover{
+			background-color: #000;
+			color: $secondary-color;
+		}
+	}
+}
+
+/* --------------------------- Footer -------------------*/
+.wrapper{
+	footer{
+		padding-top: emCalc(10);
+		text-align: right;
+		.menu{
+			text-align: right;
+			ul{
+				border-top: 1px solid #c1c1c1;
+				border-bottom: 1px solid #c1c1c1;
+				list-style-type: none;
+				li{
+					display: inline;
+					&:before{
+						content: "|";
+						color: #c1c1c1;
+						padding: 0 10px;
+					}
+					&:nth-child(1):before{
+						content: "";
+					}
+				}
+			}
+		}
+	}
+}
